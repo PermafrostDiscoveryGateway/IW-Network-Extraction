@@ -1,6 +1,6 @@
 # IW-Network-Extraction
-Extracting the network of troughs surrounding ice wedges detected by the MAPLE workflow using a simple geospatial vector data processing workflow. This code accompanies the commentary submitted to Nature, "The Capillaries of the Arctic Tundra" (Liljedahl, A., Witharana, C., and Manos, E., 2024)
-
+This repo contains the accompanying code for the manuscript published in Nature Water (Liljedahl, A.K., Witharana, C., and Manos, E., 2024. The Capillaries of the Arctic Tundra. Nature Water xxxxxxx).
+   
 Given a folder containing polygon shapefiles of IWPs detected from Maxar satellite imagery using a Mask RCNN-based deep learning pipeline (one IWP shapefile for each Maxar satellite image), the code follows a series of basic geospatial operations performed upon the polygon geometries:
    
 **(1)** Adopting the methodology from _Ulrich, Mathias, et al. "Quantifying wedge‐ice volumes in Yedoma and thermokarst basin deposits." Permafrost and Periglacial Processes 25.3 (2014): 151-161_, we apply a buffer that represents widths at the top of ice wedges around each IWP. A buffer width of 5 meters was chosen, since this allowed buffers of adjacent polygons to overlap. Realistically this is needed, since the same ice-wedge would be repsonsible for forming two very close IWPs. With a buffer width too small, this step would create two buffers that do not touch, indicating the presence of two ice-wedge polgyons between adjacent polygons. These buffers are then converted to raster format in order to perform skeletonization, which is an image processing technique.
